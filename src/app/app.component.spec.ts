@@ -13,23 +13,20 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   }));
-
-  it('should create the app', () => {
+  it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'cctFrontDec8th2019'`, () => {
+  }));
+  it(`should have as title 'colorcrayontip-ui'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('cctFrontDec8th2019');
-  });
-
-  it('should render title', () => {
+    expect(app.title).toEqual('colorcrayontip-ui');
+  }));
+  it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cctFrontDec8th2019 app is running!');
-  });
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to colorcrayontip-ui!');
+  }));
 });
