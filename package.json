@@ -26,8 +26,6 @@
     "@syncfusion/ej2-angular-calendars": "^17.4.40",
     "auth0-js": "^9.11.3",
     "bootstrap": "^4.4.1",
-    "date-picker": "^0.5.0",
-    "datepicker": "0.0.0",
     "express": "^4.17.1",
     "ngx-bootstrap": "^5.2.0",
     "ngx-date-picker": "0.0.24",
