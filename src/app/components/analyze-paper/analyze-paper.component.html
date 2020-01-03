@@ -1,0 +1,393 @@
+<div class="container">
+  <form [formGroup]="analyzePaperForm" (ngSubmit)="submitRegistration()" novalidate>
+    <div>
+      <input type="number" value="null" formControlName="rowid" hidden="true"> 
+    </div>
+    <div class="form-group">
+      <label for="username">Select a student</label>
+      <select class="form-control" id="username" name="username" formControlName="username" required>
+        <option value="">Please select the username/Student name</option>
+          <option *ngFor="let u of users" [ngValue]="u">
+          {{u.username}}
+          </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nameofpaper">Enter the name of this new paper to be analyzed.</label>
+      <input type="text" class="form-control" formControlName="nameofpaper" required>
+    </div>
+
+    <!-- DatePicker
+    <div class="form-group">
+      <label for="date_taken">Choose a date you would like associated with this analysis</label>
+      <input type="text"
+        placeholder="Date Analyzed"
+        class="form-control"
+        name="date_taken" id="date_taken"
+        bsDatepicker>
+      </div> -->
+<!--Question 1-->
+    <div class="form-check">
+      <br/><br/>
+      <h4>COLOR SCHEME</h4>
+      <label for="question01"><br/>How well does the design apply one of the seven
+        traditional color combinations (primary, secondary monochromatic, analogous, complement, split 
+        complement, or triadic) so that no colors clash or disharmonize?</label>
+        <div>
+          <input class="form-check-input" type="radio" name="question01" id="question01Radio1" value="1" formControlName="question01">            
+          <label class="form-check-label" for="question01Radio1">
+              Terribly: Colors clash terribly, all of the time
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="radio" name="question01" id="question01Radio2" value="2" formControlName="question01">            
+          <label class="form-check-label" for="question01Radio2">
+              Not very well: Colors clash significantly or frequently
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="radio" name="question01" id="question01Radio3" value="3" formControlName="question01">            
+          <label class="form-check-label" for="question01Radio3">
+              Not very well: Colors clash significantly or frequently
+          </label>
+        </div>
+        <div>
+            <input class="form-check-input" type="radio" name="question01" id="question01Radio4" value="4" formControlName="question01">            
+            <label class="form-check-label" for="question01Radio4">
+                Perfectly: No Colors Clash
+            </label>          
+        </div>        
+      </div>
+
+
+      <!--Question 2-->
+      <div class="form-check">
+          <br/><br/>
+          <h4>COLOR QUANTITY</h4>
+          <label for="question02"><br/>How many colors are being used in the design theme,
+            not including white? Do not count colors
+            used in photographs or in charts or graphs
+            that require more than 4 colors for communication
+            purposes. (NOTE: Black counts as a color.)</label>
+            <div>
+              <input class="form-check-input" type="radio" name="question02" id="question02Radio1" value="1" formControlName="question02">            
+              <label class="form-check-label" for="question02Radio1">
+                  6 or more
+              </label>
+            </div>
+            <div>
+              <input class="form-check-input" type="radio" name="question02" id="question01Radio2" value="2" formControlName="question02">            
+              <label class="form-check-label" for="question0Radio2">
+                  5
+              </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="question02" id="question01Radio3" value="3" formControlName="question02">            
+                <label class="form-check-label" for="question02Radio3">
+                    1
+                </label>          
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="question02" id="question01Radio4" value="4" formControlName="question02">            
+                <label class="form-check-label" for="question02Radio4">
+                    2-4
+                </label>          
+            </div>               
+          </div>
+          
+
+          <!--Question 3-->
+          <div class="form-check">
+              <br/><br/>
+              <h4>EMOTION/SATURATION</h4>
+              <label for="question03"><br/>Determine which of the three broad emotional appeals
+                the design SHOULD display based on purpose of design,
+                along with the associated color patterns that meet that
+                emotion: 1) friendly, lively, creative, and professional
+                (bright, desaturated colors); 2) serious, organized, calculated,
+                and professional (dark, desaturated colors); or 3) loud,
+                attention-grabbing, and appealing to children (fully saturated
+                primary and secondary colors).</label>
+                <div>
+                  <input class="form-check-input" type="radio" name="question03" id="question03Radio1" value="1" formControlName="question03">            
+                  <label class="form-check-label" for="question03Radio1">
+                      Terribly: Color saturation  communicates unintended or misleading emotion
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="radio" name="question03" id="question01Radio2" value="2" formControlName="question03">            
+                  <label class="form-check-label" for="question03Radio2">
+                      Not very well: Color saturation weakly captures intended emotion
+                  </label>
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="question02" id="question01Radio3" value="3" formControlName="question03">            
+                    <label class="form-check-label" for="question01Radio3">
+                        Fairly well: Color saturation mostly captures intended emotion
+                    </label>          
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="question02" id="question01Radio4" value="4" formControlName="question03">            
+                    <label class="form-check-label" for="question01Radio4">
+                        Perfectly: Color saturation captures intended emotion well
+                    </label>          
+                </div>               
+              </div>
+
+
+
+              <!--Question 4-->
+              <div class="form-check">
+                  <br/><br/>
+                  <h4>COLOR PSYCHOLOGY</h4>
+                  <label for="question04"><br/>Consider how color is used to communicate things
+                    like level of danger (on a scale from green to red);
+                    specific emotions based on culture (red for anger,
+                    green for envious); and culturally accepted meanings
+                    (like road signs). How many times is color misused or
+                    potentially communicates something unintended?</label>
+                    <div>
+                      <input class="form-check-input" type="radio" name="question04" id="question04Radio1" value="1" formControlName="question04">            
+                      <label class="form-check-label" for="question04Radio1">
+                        3 or more
+                      </label>
+                    </div>
+                    <div>
+                      <input class="form-check-input" type="radio" name="question04" id="question01Radio2" value="2" formControlName="question04">            
+                      <label class="form-check-label" for="question04Radio2">
+                        2
+                      </label>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" name="question04" id="question04Radio3" value="3" formControlName="question04">            
+                        <label class="form-check-label" for="question04Radio3">
+                            1
+                        </label>          
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" name="question04" id="question04Radio4" value="4" formControlName="question04">            
+                        <label class="form-check-label" for="question04Radio4">
+                            0
+                        </label>          
+                    </div>               
+                  </div>
+
+
+                  <!--Question 5-->
+                  <div class="form-check">
+                      <br/><br/>
+                      <h4>CHROMOSTEREOPSIS</h4>
+                      <label for="question05"><br/>How many times is colored text placed on top of a
+                        colored background where the two colors either
+                        clash or donâ€™t contrast well?</label>
+                        <div>
+                          <input class="form-check-input" type="radio" name="question05" id="question05Radio1" value="1" formControlName="question05">            
+                          <label class="form-check-label" for="question05Radio1">
+                            3 or more
+                          </label>
+                        </div>
+                        <div>
+                          <input class="form-check-input" type="radio" name="question05" id="question05Radio2" value="2" formControlName="question05">            
+                          <label class="form-check-label" for="question05Radio2">
+                              2
+                          </label>
+                        </div>
+                        <div>
+                            <input class="form-check-input" type="radio" name="question05" id="question05Radio3" value="3" formControlName="question05">            
+                            <label class="form-check-label" for="question05Radio3">
+                                1
+                            </label>          
+                        </div>
+                        <div>
+                            <input class="form-check-input" type="radio" name="question05" id="question05Radio4" value="4" formControlName="question05">            
+                            <label class="form-check-label" for="question05Radio4">
+                                0
+                            </label>          
+                        </div>               
+                      </div>
+
+
+
+
+                      <!--Question 6-->
+                      <div class="form-check">
+                          <br/><br/>
+                          <h4>COLOR</h4>
+                          <label for="question06"><br/>How many times are two or more colors that
+                            are technically different colors but appear
+                            similarly used?</label>
+                            <div>
+                              <input class="form-check-input" type="radio" name="question06" id="question06Radio1" value="1" formControlName="question06">            
+                              <label class="form-check-label" for="question06Radio1">
+                                  6 or more
+                              </label>
+                            </div>
+                            <div>
+                              <input class="form-check-input" type="radio" name="question06" id="question06Radio2" value="2" formControlName="question06">            
+                              <label class="form-check-label" for="question06Radio2">
+                                  5
+                              </label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="question06" id="question06Radio3" value="3" formControlName="question06">            
+                                <label class="form-check-label" for="question06Radio3">
+                                    1
+                                </label>          
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="question06" id="question06Radio4" value="4" formControlName="question06">            
+                                <label class="form-check-label" for="question06Radio4">
+                                    2-4
+                                </label>          
+                            </div>               
+                          </div>
+
+
+
+                          <!--Question 7-->
+                          <div class="form-check">
+                              <br/><br/>
+                              <h4>SIZE</h4>
+                              <label for="question07"><br/>How many times are words or icons displayed
+                                that are technically different in size but appear
+                                similar?</label>
+                                <div>
+                                  <input class="form-check-input" type="radio" name="question07" id="question07Radio1" value="1" formControlName="question07">            
+                                  <label class="form-check-label" for="question07Radio1">
+                                      3 or more
+                                  </label>
+                                </div>
+                                <div>
+                                  <input class="form-check-input" type="radio" name="question07" id="question07Radio2" value="2" formControlName="question07">            
+                                  <label class="form-check-label" for="question07Radio2">
+                                      2
+                                  </label>
+                                </div>
+                                <div>
+                                    <input class="form-check-input" type="radio" name="question07" id="question07Radio3" value="3" formControlName="question07">            
+                                    <label class="form-check-label" for="question07Radio3">
+                                        1
+                                    </label>          
+                                </div>
+                                <div>
+                                    <input class="form-check-input" type="radio" name="question07" id="question07Radio4" value="4" formControlName="question07">            
+                                    <label class="form-check-label" for="question07Radio4">
+                                        0
+                                    </label>          
+                                </div>               
+                              </div>
+
+
+                              <!--Question 8-->
+                              <div class="form-check">
+                                  <br/><br/>
+                                  <h4>TYPEFACES</h4>
+                                  <label for="question08"><br/>How many times are different fonts
+                                    used that are technically different but
+                                    appear similar?</label>
+                                    <div>
+                                      <input class="form-check-input" type="radio" name="question08" id="question08Radio1" value="1" formControlName="question08">            
+                                      <label class="form-check-label" for="question08Radio1">
+                                          3 or more
+                                      </label>
+                                    </div>
+                                    <div>
+                                      <input class="form-check-input" type="radio" name="question08" id="question01Radio2" value="2" formControlName="question08">            
+                                      <label class="form-check-label" for="question01Radio2">
+                                          2
+                                      </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="radio" name="question08" id="question01Radio3" value="3" formControlName="question08">            
+                                        <label class="form-check-label" for="question01Radio3">
+                                            1
+                                        </label>          
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="radio" name="question08" id="question01Radio4" value="4" formControlName="question08">            
+                                        <label class="form-check-label" for="question01Radio4">
+                                            0
+                                        </label>          
+                                    </div>               
+                                  </div>
+
+
+
+
+                                  <!--Question 9-->
+                                  <div class="form-check">
+                                      <br/><br/>
+                                      <h4>HIGHLIGHTING</h4>
+                                      <label for="question09"><br/>What percentage of words are highlighted on
+                                        the page, including headings and titles, if any?</label>
+                                        <div>
+                                          <input class="form-check-input" type="radio" name="question09" id="question09Radio1" value="1" formControlName="question09">            
+                                          <label class="form-check-label" for="question09Radio1">
+                                            More than 20%
+                                          </label>
+                                        </div>
+                                        <div>
+                                          <input class="form-check-input" type="radio" name="question09" id="question09Radio2" value="2" formControlName="question09">            
+                                          <label class="form-check-label" for="question09Radio2">
+                                              0%
+                                          </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="question09" id="question09Radio3" value="3" formControlName="question09">            
+                                            <label class="form-check-label" for="question09Radio3">
+                                                10-20%
+                                            </label>          
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="question09" id="question09Radio4" value="4" formControlName="question09">            
+                                            <label class="form-check-label" for="question09Radio4">
+                                                1-10%
+                                            </label>          
+                                        </div>               
+                                      </div>
+
+
+
+                                      <!--Question 10-->
+                                      <div class="form-check">
+                                          <br/><br/>
+                                          <h4>OVERLAYS</h4>
+                                          <label for="question10"><br/>How many times is a logo, icon, or text
+                                            placed on top of a background image
+                                            where the two conflict because of low
+                                            contrast? (If multiple words or icons
+                                            overlay a single image, count every word and
+                                            icon).</label>
+                                            <div>
+                                              <input class="form-check-input" type="radio" name="question10" id="question10Radio1" value="1" formControlName="question10">            
+                                              <label class="form-check-label" for="question10Radio1">
+                                                  5 or more
+                                              </label>
+                                            </div>
+                                            <div>
+                                              <input class="form-check-input" type="radio" name="question10" id="question10Radio2" value="2" formControlName="question10">            
+                                              <label class="form-check-label" for="question10Radio2">
+                                                  3-4
+                                              </label>
+                                            </div>
+                                            <div>
+                                                <input class="form-check-input" type="radio" name="question10" id="question10Radio3" value="3" formControlName="question10">            
+                                                <label class="form-check-label" for="question10Radio3">
+                                                    1-2
+                                                </label>          
+                                            </div>
+                                            <div>
+                                                <input class="form-check-input" type="radio" name="question10" id="question10Radio4" value="4" formControlName="question10">            
+                                                <label class="form-check-label" for="question10Radio4">
+                                                    0
+                                                </label>          
+                                            </div>               
+                                          </div>
+                                          <div>
+                                            <button type="submit" class="btn btn-primary" >Save this analysis</button>
+                                          </div>
+                                          <div *ngIf="validMessage != ''">
+                                            <h3 class="has-ingo">{{validMessage}}</h3>
+                                        </div>
+  </form>    
+</div>

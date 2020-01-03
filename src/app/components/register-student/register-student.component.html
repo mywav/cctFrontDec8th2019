@@ -1,0 +1,11 @@
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="submitRegistration()" novalidate>
+        <div *ngIf="validMessage != ''">
+            <h3 class="has-ingo">{{validMessage}}</h3>
+        </div>
+        <div class="form-group">
+            <label>Enter the student's name</label>
+            <input type="text" class="form-control" formControlName="username" required autofocus/>
+        </div>
+    </form>
+</div>

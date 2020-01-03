@@ -1,0 +1,32 @@
+<div class="container">
+        <form [formGroup]="quizform" (ngSubmit)="getHistoricalPapers()" novalidate> 
+            <div>
+                <input type="number" value="null" formControlName="rowid" hidden="true"> 
+              </div>     
+            <div class="form-group">
+              <label>Student Name</label> 
+              <select (change)="selectChangeHandler($event)" [(ngModel)]="selectedUsername" class="form-control" id="username" name="username" formControlName="username" required>
+                  <option value="">Please select the username/Student name</option>
+                    <option *ngFor="let u of users" [ngValue]="u.username">
+                    {{u.username}}
+                    </option>
+            </select>
+            </div>  
+            <div>  
+            <button type="submit" class="btn btn-primary" >View Historical Papers</button>
+            </div>
+        </form>
+      
+        <form [formGroup]="historicalPapers" novalidate (ngSubmit)="getHistoricalPaper()">
+          <div class="form-group">
+              <label>Name of Paper</label>
+              <select class="form-control" [(ngModel)]="selectedId" formControlName="historicalPapersList" required>          
+                <option value="">Select a historical paper to view</option>
+                <option *ngFor="let p of pastPapers" [ngValue]="p.id">
+                  <a [routerLink]="['/admin/view', p.id]">{{p.nameofpaper}}</a>
+                </option>
+              </select>
+          </div>
+          <button class="btn btn-primary" type="submit">View Analysis For This Paper</button>
+        </form>        
+      </div>
