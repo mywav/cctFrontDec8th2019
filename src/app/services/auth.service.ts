@@ -9,7 +9,7 @@ export class AuthService {
     clientID: 't5C8pJ0bYK2RO6GdIyPRqetR2w4SzotA',
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://localhost:8080',
+    audience: 'https://colorcrayontipbackend.herokuapp.com',
     redirectUri: 'http://localhost:4200/callback',
     scope: 'openid view:registration view:registrations'
   });

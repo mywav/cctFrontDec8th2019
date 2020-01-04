@@ -16,14 +16,14 @@ export class UsersService {
 
   getUsers() {
     let token = localStorage.getItem('access_token');
-    return this.http.get('/server/api/v1/users',
+    return this.http.get('/https://colorcrayontipbackend.herokuapp.com/api/v1/users',
       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
       );
   }
 
   getUser(rowid: number) {
     let token = localStorage.getItem('access_token');
-    return this.http.get('/server/api/v1/users/' + rowid,
+    return this.http.get('/https://colorcrayontipbackend.herokuapp.com/api/v1/users/' + rowid,
       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
       );
   }
@@ -32,6 +32,6 @@ export class UsersService {
 
   createUserRegistration(user) {
     let body = JSON.stringify(user);
-    return this.http.post('/server/api/v1/users', body, httpOptions);
+    return this.http.post('/https://colorcrayontipbackend.herokuapp.com/api/v1/users', body, httpOptions);
   }
 }
