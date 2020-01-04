@@ -10,7 +10,7 @@ export class AuthService {
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
     audience: 'https://colorcrayontipbackend.herokuapp.com',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'https://colorcrayontipbackend.herokuapp.com/callback',
     scope: 'openid view:registration view:registrations'
   });
 
