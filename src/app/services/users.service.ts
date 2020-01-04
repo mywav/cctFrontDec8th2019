@@ -16,14 +16,14 @@ export class UsersService {
 
   getUsers() {
     let token = localStorage.getItem('access_token');
-    return this.http.get('/https://colorcrayontipbackend.herokuapp.com/api/v1/users',
+    return this.http.get('https://colorcrayontipbackend.herokuapp.com/api/v1/users',
       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
       );
   }
 
   getUser(rowid: number) {
     let token = localStorage.getItem('access_token');
-    return this.http.get('/https://colorcrayontipbackend.herokuapp.com/api/v1/users/' + rowid,
+    return this.http.get('https://colorcrayontipbackend.herokuapp.com/api/v1/users/' + rowid,
       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
       );
   }

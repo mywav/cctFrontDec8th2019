@@ -6,11 +6,11 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
     auth0 = new auth0.WebAuth({
-    clientID: 't5C8pJ0bYK2RO6GdIyPRqetR2w4SzotA',
+    clientID: 'BThdJYuzGPCLYPNPsQV31xVa1NlnBduL',
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
-    audience: 'https://colorcrayontipbackend.herokuapp.com',
-    redirectUri: 'https://colorcrayontipbackend.herokuapp.com/callback',
+    audience: 'http://localhost:8080',
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid view:registration view:registrations'
   });
 
