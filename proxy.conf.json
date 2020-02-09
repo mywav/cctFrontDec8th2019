@@ -1,6 +1,6 @@
 {
 	"/server": {
-		"target": "https://colorcrayontipbackend.herokuapp.com",
+		"target": "/colorcrayontipbackend.ryannewbold.com",
 		"secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
