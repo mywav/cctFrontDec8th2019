@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
-const bodyParser = ('body-parser');
+const bodyParser = require('body-parser');
 const proxy = require('express-http-proxy');
 const cors = require('cors');
 
@@ -16,14 +16,14 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
 
 //Point static path to dist
-app.use(express.static(path.join(_dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set out api routes proxy to point to spring boot server
 app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'))
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(_dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // Get port from environment and store in Express.
