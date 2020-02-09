@@ -10,6 +10,7 @@ const cors = require('cors');
 const app = express();
 
 // Parsers for POST data
+app.use(express.static(__dirname + '/dist/cctFrontDec8th2019'));
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
