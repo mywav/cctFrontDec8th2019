@@ -9,8 +9,8 @@ export class AuthService {
     clientID: 'BThdJYuzGPCLYPNPsQV31xVa1NlnBduL',
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://localhost:4200',
-    redirectUri: 'http://localhost:4200',
+    audience: 'http://localhost:8080',
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid view:registration view:registrations'
   });
 
