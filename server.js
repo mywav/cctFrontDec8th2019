@@ -10,7 +10,7 @@ const cors = require('cors');
 const app = express();
 
 // Parsers for POST data
-app.use(express.static(__dirname + '/dist/cctFrontDec8th2019'));
+app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set out api routes proxy to point to spring boot server
-app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'))
+app.use('/server', proxy('http://localhost:8080'))
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

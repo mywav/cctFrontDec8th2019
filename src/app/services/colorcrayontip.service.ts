@@ -13,7 +13,7 @@ export class ColorcrayontipService {
 
   getQuizes() {
     let token = localStorage.getItem('access_token');
-    return this.http.get('https://colorcrayontipbackend.herokuapp.com/api/v1/quizes',
+    return this.http.get('/server/api/v1/quizes',
        {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
       );
   }
