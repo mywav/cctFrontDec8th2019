@@ -1,6 +1,6 @@
 {
 	"/server": {
-		"target": "http://localhost:8080",
+		"target": "http://colorcrayontipbackend.ryannewbold.com",
 		"secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
