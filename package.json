@@ -27,6 +27,7 @@
     "auth0-js": "^9.11.3",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
     "ngx-bootstrap": "^5.2.0",
     "ngx-date-picker": "0.0.24",
     "path": "^0.12.7",
