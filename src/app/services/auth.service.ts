@@ -6,10 +6,10 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
     auth0 = new auth0.WebAuth({
-    clientID: 't5C8pJ0bYK2RO6GdIyPRqetR2w4SzotA',
+    clientID: 'l6ljAwTTtKMlfgeBdRVDolkYQMCx5wUP',
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://localhost:8080',
+    audience: 'http://colorcrayontipbackend.ryannewbold.com',
     redirectUri: 'http://colorcrayontip.ryannewbold.com/callback',
     scope: 'openid view:registration view:registrations'
   });
