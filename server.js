@@ -15,20 +15,20 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
 
 // Set our api routes proxy to point to spring boot server
 app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/cctFrontDec8th2019/index.html'));
 });
 
 /**
  * Get port from environment and store in Express.
  */
- const port = ('4200' || process.env.port);
+ const port = ('4200' || process.env.PORT);
 app.set('port', port);
 
 /**
