@@ -1,5 +1,5 @@
 {
-	"/server": {
+	"http://colorcrayontip.ryannewbold.com/server": {
 		"target": "http://colorcrayontipbackend.ryannewbold.com",
 		"secure": false,
     "changeOrigin": true,
