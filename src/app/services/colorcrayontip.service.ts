@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,8 +15,8 @@ export class ColorcrayontipService {
   getQuizes() {
     let token = localStorage.getItem('access_token');
     return this.http.get('/server/api/v1/quizes',
-       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
-      );
+       {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)},
+      ).pipe(catchError(this.handleError('getQuizes', [])));
   }
 
   getQuizesForStudent(userObject) {
@@ -38,5 +39,12 @@ export class ColorcrayontipService {
     let body = JSON.stringify(quiz);
     console.log(quiz);
     return this.http.post('/server/api/v1/quizes', body, httpOptions);
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    }
   }
 }
