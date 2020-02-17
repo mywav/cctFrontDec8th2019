@@ -1,5 +1,6 @@
 // Get dependencies
 const express = require('express');
+const request = require('request');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -8,16 +9,31 @@ const cors = require('cors');
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.get('/server/api/v1/quizes', (req, res) => {
+  request(
+    { url: 'http://colorcrayontipbackend.ryannewbold.com/api/v1/quizes' },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  )
+});
+
 // Parsers for POST data
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
 app.use(cors());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
