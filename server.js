@@ -14,6 +14,11 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
 app.use(cors());
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
 
