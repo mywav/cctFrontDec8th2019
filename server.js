@@ -20,6 +20,8 @@ app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
 // Set our api routes proxy to point to spring boot server
 app.use('http://colorcrayontip.ryannewbold.com/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
 
+app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
+
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/cctFrontDec8th2019/index.html'));
