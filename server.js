@@ -14,9 +14,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/server/api/v1/quizes', (req, res) => {
+app.get('/api/v1/quizes', (req, res) => {
   request(
-    { url: 'http://colorcrayontipbackend.ryannewbold.com/api/v1/quizes' },
+    { url: 'http://colorcrayontipbackend.ryannewbold.com' },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
