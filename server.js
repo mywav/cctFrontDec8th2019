@@ -9,9 +9,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.configure(function () {
-  app.use(allowCrossDomain);
-});
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -35,7 +33,7 @@ app.get('/api/v1/quizes', (req, res) => {
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
-app.use(cors());
+
 
 
 
