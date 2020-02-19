@@ -8,10 +8,11 @@ const proxy = require('express-http-proxy');
 const cors = require('cors');
 
 const app = express();
-
+app.use(cors());
 app.all('/', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://colorcrayontip.ryannewbold.com");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  req.header("Access-Control-Allow-Origin", "*");
   next()
 });
 app.use(bodyParser.json({limit: '20mb'}));
