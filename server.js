@@ -9,9 +9,20 @@ const cors = require('cors');
 
 const app = express();
 
+app.use(bodyParser.json({limit: '20mb'}));
+app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
+app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
+app.get('*', (req, res) => {
+  res.sendFile(path.joing(__dirname, 'dist/cctFrontDec8th2019/index.html'));
+});
+const port = process.env.PORT;
+app.set('port', port);
 
-app.use((req, res, next) => {
+const server = http.createServer(app);
+server.listen(port, () => console.log('API running on ${port}'));
+/*app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
@@ -53,15 +64,15 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
- const port = (process.env.PORT || '4200');
+ /*const port = (process.env.PORT || '4200');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app);
+//const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on ${port}`));
+//server.listen(port, () => console.log(`API running on ${port}`));
