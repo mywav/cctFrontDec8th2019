@@ -12,6 +12,8 @@ const app = express();
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
+app.options('http://colorcrayontipbackend.ryannewbold.com/api/v1/quizes', cors());
+app.options('server/api/v1/quizes', cors());
 app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
 app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
 app.get('*', (req, res) => {
