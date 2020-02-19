@@ -9,6 +9,10 @@ const cors = require('cors');
 
 const app = express();
 
+app.configure(function () {
+  app.use(allowCrossDomain);
+});
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
