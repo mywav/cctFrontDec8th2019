@@ -10,7 +10,7 @@ const cors = require('cors');
 const app = express();
 
 app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://colorcrayontip.ryannewbold.com");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next()
 });
@@ -22,7 +22,7 @@ app.options('server/api/v1/quizes', cors());
 app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
 app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
 app.get('*', (req, res) => {
-  res.sendFile(path.joing(__dirname, 'dist/cctFrontDec8th2019/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/cctFrontDec8th2019/index.html'));
 });
 const port = process.env.PORT;
 app.set('port', port);
