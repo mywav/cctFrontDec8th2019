@@ -10,7 +10,8 @@ export class AuthService {
     domain: 'pichanaki.auth0.com',
     responseType: 'token id_token',
     audience: 'http://localhost:8080',
-    redirectUri: 'http://colorcrayontip.ryannewbold.com',
+    //redirectUri: 'http://colorcrayontip.ryannewbold.com',
+    redirectUri: 'http://localhost:4200',
     scope: 'openid view:registration view:registrations'
   });
 

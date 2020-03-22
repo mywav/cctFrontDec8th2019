@@ -11,7 +11,8 @@ app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'dist/cctFrontDec8th2019')));
-app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
+// app.use('/server', proxy('http://colorcrayontipbackend.ryannewbold.com'));
+app.use('/server', proxy('http://localhost:8080'));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/cctFrontDec8th2019/index.html'));
 });
