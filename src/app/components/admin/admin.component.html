@@ -5,7 +5,6 @@
         <th class="text-right">Student Name</th>  
         <th class="text-right">Name of Paper</th>      
         <th class="text-right">Date Taken</th>
-        <th class="text-right">Question 1</th>
       </tr>
       <tr *ngFor="let quiz of quizes">
           <td>
@@ -16,9 +15,6 @@
           </td>
           <td class="text-right">
             {{quiz.nameofpaper}}
-          </td>
-          <td>
-            {{quiz.question01}}
           </td>
           <td class="text-right">
             {{quiz.dateTaken}}

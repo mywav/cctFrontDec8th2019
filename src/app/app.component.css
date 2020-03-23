@@ -1,3 +1,8 @@
 a {
     color: white;
 }
+
+.navButtons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

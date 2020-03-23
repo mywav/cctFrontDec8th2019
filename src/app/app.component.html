@@ -1,30 +1,31 @@
 <div style="text-align:center">
-  <h1>
-    Color Crayon Tip
-  </h1>
-  <nav>
-      <div class="column">
-          <a class="btn btn=primary" routerLink="/viewPaper">View list of papers by student name</a>
-      </div>
-      <div class="column">
-        <a class="btn btn=primary" routerLink="/admin">View full list of papers</a>
-      </div>
-      <div class="column">
-          <a class="btn btn=primary" routerLink="/registerStudent">Register a new student</a>
+    <h1>
+        Color Crayon Tip
+    </h1>
+    <nav class="navbar-nav justify-content-center">
+        <div class="column">
+            <a class="btn btn-dark border-white navButtons" routerLink="/viewPaper">View list of papers by student name</a>
         </div>
         <div class="column">
-            <a class="btn btn=primary" routerLink="/analyzePaper">Analyze a new paper</a>
-          </div>
-      <div class="btn btn-default">
-      <ul style="list-style-type: none">
-        <li>
-          <button (click)="logInOrOut()">
+            <a class="btn btn-dark border-white navButtons" routerLink="/admin">View full list of papers</a>
+        </div>
+        <div class="column">
+            <a class="btn btn-dark border-white navButtons" routerLink="/registerStudent">Register a new student</a>
+        </div>
+        <div class="column">
+            <a class="btn btn-dark border-white navButtons" routerLink="/analyzePaper">Analyze a new paper</a>
+        </div>
+    </nav>
+    <div class="btn btn-default text-center">
+        <ul style="list-style-type: none">
+            <li>
+                <button class="btn btn-primary btn-lg btn-block border-white" (click)="logInOrOut()">
               {{isAuthenticated() ? "Log Out" : "Log In"}}
-          </button>         
-        </li>
-      </ul>
+          </button>
+            </li>
+        </ul>
     </div>
-  </nav>
+
 </div>
 
 <router-outlet></router-outlet>
