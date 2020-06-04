@@ -13,22 +13,22 @@ import { FormSetting } from 'src/app/data/form-settings';
 })
 export class AnalyzePaperComponent implements OnInit {
 
-  // originalFormSetting: FormSetting = {
-  //   username: null,
-  //   nameofpaper: null,
-  //   question01: null,
-  //   question02: null,
-  //   question03: null,
-  //   question04: null,
-  //   question05: null,
-  //   question06: null,
-  //   question07: null,
-  //   question08: null,
-  //   question09: null,
-  //   question10: null
-  // };
+  originalFormSetting: FormSetting = {
+    username: null,
+    nameofpaper: null,
+    question01: null,
+    question02: null,
+    question03: null,
+    question04: null,
+    question05: null,
+    question06: null,
+    question07: null,
+    question08: null,
+    question09: null,
+    question10: null
+  };
 
-  // formSettting : FormSetting = { ...this.originalFormSetting };
+  formSettting : FormSetting = { ...this.originalFormSetting };
   public users;
   analyzePaperForm: FormGroup;
   validMessage: string="";
