@@ -79,6 +79,7 @@ getHistoricalPaper() {
 submitRegistration() {
   if (this.quizform.valid) {
     this.validMessage = "Thank you for entering the quiz information!";
+    console.log(this.quizform.value);
     this.colorcrayontipService.createQuizRegistration(this.quizform.value).subscribe(
       data => {
         this.quizform.reset();
