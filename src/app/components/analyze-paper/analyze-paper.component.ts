@@ -43,6 +43,7 @@ export class AnalyzePaperComponent implements OnInit {
       this.analyzePaperForm = new FormGroup({  
       rowid: new FormControl(),
       username: new FormControl(),
+      date_taken: new FormControl(),
       nameofpaper: new FormControl(),
       question01: new FormControl(),
       question02: new FormControl(),
