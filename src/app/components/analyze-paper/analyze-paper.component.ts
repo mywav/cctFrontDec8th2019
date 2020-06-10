@@ -6,6 +6,7 @@ import { ColorcrayontipService } from '../../services/colorcrayontip.service';
 import { Observable } from 'rxjs';
 import { FormSetting } from 'src/app/data/form-settings';
 
+
 @Component({
   selector: 'app-analyze-paper',
   templateUrl: './analyze-paper.component.html',
