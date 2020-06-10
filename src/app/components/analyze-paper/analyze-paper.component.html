@@ -19,12 +19,15 @@
 
   
     <div class="form-group">
-      <label for="date_taken">Choose a date you would like associated with this analysis</label>
+      <label for="date_taken">This is the date that will be associated with this analysis:</label>
       <input type="text"
         placeholder="Date Analyzed"
         class="form-control"
         name="date_taken" id="date_taken"
-        bsDatepicker>
+        [minDate]="minDate"
+            [maxDate]="maxDate"
+            #dp="bsDatepicker"
+            bsDatepicker [(bsValue)]="myDateValue">
       </div>
     <div class="form-check">
       <br/><br/>

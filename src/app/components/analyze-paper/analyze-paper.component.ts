@@ -28,6 +28,7 @@ export class AnalyzePaperComponent implements OnInit {
     question10: null
   };
 
+  myDateValue: Date;
   formSettting : FormSetting = { ...this.originalFormSetting };
   public users;
   analyzePaperForm: FormGroup;
@@ -58,6 +59,7 @@ export class AnalyzePaperComponent implements OnInit {
     });
     this.getUsers();
     this.date_taken = new Date();
+    this.myDateValue = new Date();
   }
 
   submitRegistration() {
@@ -83,5 +85,9 @@ export class AnalyzePaperComponent implements OnInit {
       err => console.error(err),
       () => console.log('users loaded')
     )
+  }
+
+  onDateChange(newDate: Date) {
+    console.log(newDate);
   }
 }
