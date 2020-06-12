@@ -13,6 +13,8 @@ import { FormSetting } from 'src/app/data/form-settings';
 })
 export class AnalyzePaperComponent implements OnInit {
 
+  myDateValue: Date;
+
   originalFormSetting: FormSetting = {
     username: null,
     nameofpaper: null,
@@ -39,6 +41,7 @@ export class AnalyzePaperComponent implements OnInit {
   constructor(private usersService: UsersService, private colorcrayontipService: ColorcrayontipService) { }
 
   ngOnInit() {
+    this.myDateValue = new Date();
       this.usernames = this.usersService.getUsers();
       this.analyzePaperForm = new FormGroup({  
       rowid: new FormControl(),
@@ -83,5 +86,9 @@ export class AnalyzePaperComponent implements OnInit {
       err => console.error(err),
       () => console.log('users loaded')
     )
+  }
+
+  onDateChange(newDate: Date) {
+    console.log(newDate);
   }
 }

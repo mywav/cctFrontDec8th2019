@@ -17,6 +17,8 @@ import { ViewPaperComponent } from './components/view-paper/view-paper.component
 import { AnalyzePaperComponent } from './components/analyze-paper/analyze-paper.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NameTheQuizFormComponent } from './components/name-the-quiz-form/name-the-quiz-form.component';
+import { FormsModule } from '@angular/forms';
+import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { NameTheQuizFormComponent } from './components/name-the-quiz-form/name-t
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot()
   ],
   providers: [ColorcrayontipService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -23,8 +23,9 @@
       <input type="text"
         placeholder="Date Analyzed"
         class="form-control"
+            #dp="bsDatepicker"
         name="date_taken" id="date_taken"
-        ngbDatepicker #d="ngbDatepicker">
+        bsDatepicker [(bsValue)]="myDateValue">
       </div>
     <div class="form-check">
       <br/><br/>
