@@ -13,6 +13,7 @@ import { FormSetting } from 'src/app/data/form-settings';
 })
 export class AnalyzePaperComponent implements OnInit {
 
+  minDate = {year: 2017, month: 1, day: 1};
   myDateValue: Date;
 
   originalFormSetting: FormSetting = {
