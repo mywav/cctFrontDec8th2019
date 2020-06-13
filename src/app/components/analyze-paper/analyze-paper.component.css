@@ -1,3 +1,4 @@
-p {
-    font-family: Lato;
-  }
+.bootstrap-datetimepicker-widget {
+  list-style: none;
+  background-color: #fff; /* This is your background color. Copy and Paste this row. */
+}

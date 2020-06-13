@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { NgForm, NgModel } from '@angular/forms';
-import { UsersService } from '../../services/users.service';
-import { ColorcrayontipService } from '../../services/colorcrayontip.service';
-import { Observable } from 'rxjs';
-import { FormSetting } from 'src/app/data/form-settings';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
+import { NgForm, NgModel } from "@angular/forms";
+import { UsersService } from "../../services/users.service";
+import { ColorcrayontipService } from "../../services/colorcrayontip.service";
+import { Observable } from "rxjs";
+import { FormSetting } from "src/app/data/form-settings";
+import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 
 @Component({
-  selector: 'app-analyze-paper',
-  templateUrl: './analyze-paper.component.html',
-  styleUrls: ['./analyze-paper.component.css']
+  selector: "app-analyze-paper",
+  templateUrl: "./analyze-paper.component.html",
+  styleUrls: ["./analyze-paper.component.css"],
 })
 export class AnalyzePaperComponent implements OnInit {
-
-  minDate = {year: 2017, month: 1, day: 1};
+  minDate = { year: 2017, month: 1, day: 1 };
+  maxDate = { year: 2200, month: 1, day: 1 };
   myDateValue: Date;
+  datePickerConfig: Partial<BsDatepickerConfig>;
 
   originalFormSetting: FormSetting = {
     username: null,
@@ -28,23 +30,33 @@ export class AnalyzePaperComponent implements OnInit {
     question07: null,
     question08: null,
     question09: null,
-    question10: null
+    question10: null,
   };
 
-  formSettting : FormSetting = { ...this.originalFormSetting };
+  formSettting: FormSetting = { ...this.originalFormSetting };
   public users;
   analyzePaperForm: FormGroup;
-  validMessage: string="";
+  validMessage: string = "";
   usernames: Observable<Object>;
   date_taken: Date;
-  
 
-  constructor(private usersService: UsersService, private colorcrayontipService: ColorcrayontipService) { }
+  constructor(
+    private usersService: UsersService,
+    private colorcrayontipService: ColorcrayontipService
+  ) {
+    this.datePickerConfig = Object.assign(
+      {},
+      {
+        containerClass: "theme-dark-blue",
+        showWeekNumbers: false,
+      }
+    );
+  }
 
   ngOnInit() {
     this.myDateValue = new Date();
-      this.usernames = this.usersService.getUsers();
-      this.analyzePaperForm = new FormGroup({  
+    this.usernames = this.usersService.getUsers();
+    this.analyzePaperForm = new FormGroup({
       rowid: new FormControl(),
       username: new FormControl(),
       date_taken: new FormControl(),
@@ -67,26 +79,30 @@ export class AnalyzePaperComponent implements OnInit {
   submitRegistration() {
     if (this.analyzePaperForm.valid) {
       this.validMessage = "The analysis has been saved.";
-      this.colorcrayontipService.createQuizRegistration(this.analyzePaperForm.value).subscribe(
-        data => {
-          this.analyzePaperForm.reset();
-          return true;
-        },
-        error => {
-          return Observable.throw(error);
-        }
-      )
+      this.colorcrayontipService
+        .createQuizRegistration(this.analyzePaperForm.value)
+        .subscribe(
+          (data) => {
+            this.analyzePaperForm.reset();
+            return true;
+          },
+          (error) => {
+            return Observable.throw(error);
+          }
+        );
     } else {
-    this.validMessage = "Please fill out the analysis completely.";
+      this.validMessage = "Please fill out the analysis completely.";
     }
   }
 
   getUsers() {
     this.usersService.getUsers().subscribe(
-      data => { this.users = data },
-      err => console.error(err),
-      () => console.log('users loaded')
-    )
+      (data) => {
+        this.users = data;
+      },
+      (err) => console.error(err),
+      () => console.log("users loaded")
+    );
   }
 
   onDateChange(newDate: Date) {

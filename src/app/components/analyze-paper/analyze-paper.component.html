@@ -17,16 +17,22 @@
       <input type="text" class="form-control" formControlName="nameofpaper" required>
     </div>
     <div class="content">
-
       <div class="form-group">
         <label for="date_taken">Choose a date you would like associated with this analysis</label>
-        <input type="text" placeholder="Date Analyzed" class="form-control" [minDate]="minDate" #dp="bsDatepicker"
-          formControlName="date_taken" name="date_taken" id="date_taken" bsDatepicker [(bsValue)]="myDateValue">
-      </div>
-
-
-      <!--Question 01-->
+        <input type="text"
+          placeholder="Date Analyzed" 
+          class="form-control"           
+          #dp="bsDatepicker"
+          [bsConfig]="datePickerConfig"
+          bsDatepicker [(bsValue)]="myDateValue"
+          formControlName="date_taken" 
+          name="date_taken" 
+          id="date_taken" 
+          >
+      </div>      
     </div>
+    <br><br><br><br><br><br><br>
+    <!--Question 01-->
     <div class="form-check">
       <br /><br />
       <h4>COLOR SCHEME</h4>
