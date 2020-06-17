@@ -1,2 +1,9 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import './css/colorcrayontip.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "./css/colorcrayontip.css";
+h1 {
+  color: white;
+}
+
+div {
+  color: white;
+}
