@@ -24,7 +24,9 @@
           class="form-control"           
           #dp="bsDatepicker"
           [bsConfig]="datePickerConfig"
-          bsDatepicker [(bsValue)]="myDateValue"
+          bsDatepicker 
+          [(bsValue)]="newVar" 
+          value="{{ newVar | date:'yyyy-MM-dd' }}"
           formControlName="date_taken" 
           name="date_taken" 
           id="date_taken" 
