@@ -15,8 +15,8 @@ app.use("/server", proxy("http://colorcrayontipbackend.ryannewbold.com"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist/cctFrontDec8th2019/index.html"));
 });
-// const port = process.env.PORT;
-const port = 8080;
+const port = process.env.PORT;
+// const port = 8080;
 app.set("port", port);
 
 const server = http.createServer(app);
