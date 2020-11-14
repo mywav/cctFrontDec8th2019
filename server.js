@@ -5,6 +5,7 @@ const http = require("http");
 const bodyParser = require("body-parser");
 const proxy = require("express-http-proxy");
 const cors = require("cors");
+const { isDevMode } = require("@angular/core");
 
 const app = express();
 app.use(bodyParser.json({ limit: "20mb" }));
@@ -15,8 +16,9 @@ app.use("/server", proxy("http://colorcrayontipbackend.ryannewbold.com"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist/cctFrontDec8th2019/index.html"));
 });
-const port = process.env.PORT;
-// const port = 8080;
+
+if (isDevMode()) const port = 8080;
+else const port = process.env.PORT;
 app.set("port", port);
 
 const server = http.createServer(app);

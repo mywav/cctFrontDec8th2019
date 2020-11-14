@@ -1,11 +1,11 @@
 {
-	"http://colorcrayontip.ryannewbold.com/server": {
-		"target": "http://colorcrayontipbackend.ryannewbold.com",
-		"secure": false,
+  "http://colorcrayontip.ryannewbold.com/server": {
+    "target": "http://colorcrayontipbackend.ryannewbold.com",
+    "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/server" : ""
+      "^/server": ""
     }
-	}
+  }
 }
